@@ -102,7 +102,10 @@ def show(prefix, tag):
 
 todo = []
 def ifdwalk(tiff, prefix, find_value):
-	ifds = [([(idx,)], ifd) for idx, ifd in enumerate(tiff.ifd)]
+	if prefix:
+		ifds = [([], ifd) for idx, ifd in enumerate(tiff.ifd)]
+	else:
+		ifds = [(['TOP'], ifd) for idx, ifd in enumerate(tiff.ifd)]
 	subifds = [([(0x14a, idx)], ifd) for idx, ifd in enumerate(tiff.subifd)]
 	for midfix, ifd in ifds + subifds:
 		local_prefix = prefix + midfix

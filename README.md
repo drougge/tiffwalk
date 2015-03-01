@@ -23,4 +23,4 @@ So thats the width of the second subimage.
 
 Things in the top ifd come out as
 
-	(INEDX,) TAG
+	"TOP" TAG
